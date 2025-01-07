@@ -17,5 +17,11 @@ and add the following piece of of json
     "dialect": "mysql"
   },
 }
-
+ now run command `npx sequelize db:create`
 `
+
+## DB Design
+ - Airplane Table
+ - Flight 
+ - Airport
+ - City 
