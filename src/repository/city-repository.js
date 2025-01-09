@@ -1,4 +1,3 @@
-const { where } = require("sequelize");
 const{ City} = require("../models/index")
 
 class CityRepository{
@@ -8,6 +7,7 @@ class CityRepository{
             return city
         }
         catch (error){
+            console.log("something went wrong in the repository layer")
             throw {error};
         }
     }
@@ -20,6 +20,7 @@ class CityRepository{
                     }
                 });
         }catch(error){
+            console.log("something went wrong in the repository layer")
             throw{error};
         }
     }
@@ -30,14 +31,18 @@ class CityRepository{
                         id:cityId
                     }
                 });
+                return city
         }catch(error){
+            console.log("something went wrong in the repository layer")
             throw{error};
         }
     }
     async getCity(cityId){
         try{
             const city = await City.findByPk(cityId);
+            return city
         }catch(error){
+            console.log("something went wrong in the repository layer")
             throw{error};
         }
     }
