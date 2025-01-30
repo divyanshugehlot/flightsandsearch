@@ -33,6 +33,7 @@ class CityService{
         try{
             const city = await this.CityRepository.updateCity(cityId,data)
             return city
+            
         }
         catch (error){
             console.log("something went wrong at service layer")

@@ -25,13 +25,22 @@ class CityRepository{
             throw{error};
         }
     }
-    async updateCity(cityId,{name}){
+    async updateCity(cityId,data){
         try{
-             const city= await City.update({name},{
+            // both approach works but this is for returning updated object instead of array 1
+            //if we are using pg sequal then returning:true can be used,else not
+            // const city = await City.findByPk(cityId); 
+            // city.name=data.name;
+            // await city.save();
+            // return city; 
+            //for getting updated data in sql we use the below approach.
+            const city= await City.update(data,{
                     where:{
                         id:cityId
                     }
-                });
+                }
+                
+            );
                 return city
         }catch(error){
             console.log("something went wrong in the repository layer")
