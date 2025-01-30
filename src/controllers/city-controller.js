@@ -1,7 +1,6 @@
-const { response } = require("express");
 const {CityService} = require("../services/index")
 
-const cityService = new CityService();
+const cityService = new CityService()
 // Post -> /city-> req.body
 const create = async(req,res)=>{
     try{
